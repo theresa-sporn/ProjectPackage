@@ -47,6 +47,17 @@ def clean_data(data):
     data.loc[:, 'Frequency'] = data['Frequency'].map(drows)
     return data
 
+def names(name):
+    if len(name) > 5:
+        print(name)
+
+def sample_function():
+from subprocess import Popen, PIPE
+p1 = Popen(["grep", "-v", "not"], stdout=PIPE)
+p2 = Popen(["cut", "-c", "1-10"], stdin=p1.stdout, stdout=PIPE)
+output = p2.communicate()[0]
+return output
+
 
 if __name__ == '__main__':
     # For introspections purpose to quickly get this functions on ipython
@@ -55,3 +66,6 @@ if __name__ == '__main__':
     df = pd.read_csv('{}/data/data.csv.gz'.format(folder_source))
     clean_data = clean_data(df)
     print(' dataframe cleaned')
+
+
+len(test_functions) == len(functions)
